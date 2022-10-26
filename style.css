@@ -5,6 +5,12 @@
   --radius: 1rem;
 }
 
+:where(html) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   color: var(--color);
   padding-block: var(--gap);
@@ -12,7 +18,7 @@ body {
   margin-inline: auto;
   display: grid;
   gap: var(--gap);
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 body::before {
