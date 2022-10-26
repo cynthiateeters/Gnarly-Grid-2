@@ -1,0 +1,79 @@
+:root {
+  --color: hsl(235, 12%, 12%);
+  --gap: 2rem;
+  --title: 2rem;
+  --radius: 1rem;
+}
+
+body {
+  color: var(--color);
+  padding-block: var(--gap);
+  width: min(100% - 2rem, 1600px);
+  margin-inline: auto;
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+body::before {
+  content: "My Card Gallery";
+  grid-column: 1/-1;
+  font-size: var(--title);
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.75px;
+}
+
+.card {
+  display: grid;
+  border-radius: var(--radius);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.card h2,
+.card p {
+  padding-inline: calc(var(--gap) / 4);
+}
+
+p {
+  max-inline-size: 45ch;
+  margin-inline: auto;
+}
+
+img {
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  max-width: 100%;
+  width: 100%;
+  display: block;
+}
+
+.card:nth-child(1) {
+  background-color: honeydew;
+  color: darkslateblue;
+}
+
+.card:nth-child(1) > h2 {
+  font-size: calc(var(--title) * 1.25);
+  text-align: center;
+}
+.card:nth-child(1) > h2 ::before,
+.card:nth-child(1) > h2 ::after {
+  content: "~ ";
+  font-size: 1em;
+}
+
+@media (min-width: 30em) {
+  .card:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .card:nth-child(1) p {
+    font-size: calc(var(--title) * 0.75);
+  }
+}
