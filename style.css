@@ -28,7 +28,8 @@ body {
 body::before {
   content: "My Card Gallery";
   grid-column: 1/-1;
-  font-size: var(--title);
+  font-size: calc(var(--title) * 1.5);
+  color: darkslateblue;
   text-align: center;
   font-weight: bold;
   letter-spacing: 0.75px;
@@ -88,16 +89,32 @@ img {
 .card:nth-child(1) {
   background-color: honeydew;
   color: darkslateblue;
+  display: block;
 }
 
 .card:nth-child(1) > h2 {
   font-size: calc(var(--title) * 1.25);
   text-align: center;
 }
-.card:nth-child(1) > h2 ::before,
-.card:nth-child(1) > h2 ::after {
-  content: "~ ";
+
+/* p::before {
+  content: "~ 🌹\A";
   font-size: 1em;
+  text-align: center;
+  font-weight: bold;
+} */
+.card:nth-child(1) h2 {
+  font-size: calc(var(--title) * 1.5);
+  color: darkslateblue;
+  background-color: transparent;
+  text-align: center;
+  width: max-content;
+  margin-inline: auto;
+  padding-block-start: 1rem;
+}
+
+.card:nth-child(1) p {
+  font-size: calc(var(--title) * 0.75);
 }
 
 @media (min-width: 564px) {
@@ -105,7 +122,4 @@ img {
     grid-column: span 2;
     grid-row: span 2;
   }
-  /* .card:nth-child(1) p {
-    font-size: calc(var(--title) * 0.75);
-  } */
 }
